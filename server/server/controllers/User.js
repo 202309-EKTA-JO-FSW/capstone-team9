@@ -1,4 +1,71 @@
+const jwt = require('jsonwebtoken')
 const User = require('../models/User')
+
+const generateToken = async (user) => {
+  return jwt.sign({ id: user.id }, process.env.JWT_SECRET , { expiresIn: '1h' });
+}
+
+const signUp = async (req, res) => {
+
+  const { UserID, FullName, UserName,Email,Password,Address,PhoneNumber,UserType,DateOfBirth,Nationality } = req.body;
+
+  try {
+
+      if (UserName && Email && Password) {
+          const user = await User.create({UserID, FullName, UserName,Email,Password,Address,PhoneNumber,UserType,DateOfBirth,Nationality});    
+
+          const token = await generateToken(user);
+          res.status(200).json({ message: 'Sign-up successful', user, token})
+      }
+      else {
+          res.status(500).json({ message: 'All fields are required' });
+      }
+
+  } catch (err) {
+      res.status(500).json({ message: 'Sign-up failed', error: err.message });
+  }
+};
+
+const signIn = async (req, res) => {
+  const { username,  password } = req.body;
+
+  try {
+      if (username &&  password) {
+          const user = await User.findOne({ UserName: username });
+          if (!user)
+              return res.status(404).json({ message: 'Invalid Username orPassword' });
+
+          if (user.__v > 0) 
+              return res.status(404).json({ message: 'already signedIn' });
+
+          const token = await generateToken(user);
+          await user.save();
+
+          res.status(200).json({ message: 'Signin successful', user, token: token });
+      } else {
+          res.status(400).json({ message: 'Username or Password are required' });
+      }
+  } catch (err) {
+      res.status(500).json({ message: 'Sign-in failed', error: err.message });
+  }
+}
+
+const signOut = async (req, res) => {
+  const userId = req.body.UserID
+  try {
+      const user = await User.find({ UserID: userId });
+      if (!user) {
+          return res.status(404).json({ message: 'User not found' });
+      }
+
+      user.token = null
+      await user.save();
+      
+      res.status(200).json({ message: 'Signout successful' });
+  } catch (err) {
+      res.status(500).json({ message: 'Sign-out failed', error: err.message });
+  }
+}
 
 const getuserDetials = async(req,res)=>{
     const {id} = req.params;
@@ -15,4 +82,4 @@ const getuserDetials = async(req,res)=>{
 }
 
 
-module.exports = { getuserDetials}
+module.exports = { getuserDetials,signUp,signIn,signOut}
