@@ -1,5 +1,6 @@
 "use client"
 import React, { useState, useEffect } from 'react';
+import Sidebar from '../../layout/Sidebar';
 
 const Page = () => {
   const [userInfo, setUserInfo] = useState(null);
@@ -23,13 +24,14 @@ const Page = () => {
 
   return (
     <div>
-      <div>
+      <Sidebar/>
+      {/* <div>
         <h2>User Info</h2>
         <p>Full Name: {userInfo?.FullName}</p>
         <p>Email: {userInfo?.Email}</p>
         <p>Nationality: {userInfo?.Nationality}</p>
         <p>Date of Birth: {userInfo?.DateOfBirth}</p>
-      </div>
+      </div> */}
     </div>
   );
 };

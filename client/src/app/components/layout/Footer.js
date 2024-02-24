@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <footer className="px-10 fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 py-4 box-border flex justify-between items-center">
+        <footer className="px-10 fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 py-4 box-border flex justify-between items-center z-10">
             <div className="flex flex-col items-start gap-12">
                 <div className='flex flex-col'>
                     <h1 className="text-black text-lg font-semibold font-poppins p-y" style={{ color: '#030303', fontSize: '20px', lineHeight: '30px' }}>EventMast</h1>
