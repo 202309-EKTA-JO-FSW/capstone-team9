@@ -6,4 +6,6 @@ export const Icons = {
     Event: require("../../assets/event.png").default,
     Notification: require("../../assets/notification.png").default,
     Attendence: require("../../assets/attendence.png").default,
+    Logout: require("../../assets/logout.png").default,
+    Profile: require("../../assets/profile.png").default,
 }

@@ -1,15 +1,19 @@
 import Profile from "./components/pages/profile/page";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
+import Sidebar from "./components/layout/Sidebar";
 
 export default function Home() {
   return (
     <main className="">
-      <div className="">
-        <Header/>
-        <Profile/>
-        {/* <Footer/> */}
+
+      <Header />
+      <div className="flex gap-4">
+        {/* <Sidebar /> */}
+        <Profile />
       </div>
+      {/* <Footer/> */}
+
     </main>
   );
 }
