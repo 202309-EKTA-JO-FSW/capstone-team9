@@ -2,8 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const eventRouter = require("./routes/EventRoute");
 const userRouter = require("./routes/UserRoute");
-
-
+const searchEvent= require("./routes/SearchRoute")
 require("dotenv").config();
 
 const connectToMongo = require("./db/connection");
@@ -13,7 +12,6 @@ const port =
   process.env.NODE_ENV === "test"
     ? process.env.NODE_LOCAL_TEST_PORT
     : process.env.NODE_LOCAL_PORT;
-
 app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());

@@ -51,7 +51,7 @@ const updatedUser = async (req, res) => {
     );
     res.json(updatedUser);
   } catch (error) {
-    throw new Error(error);
+    return res.status(401).send({error: ' There is no Match, Please try again !'})
   }
 };
 
@@ -66,7 +66,7 @@ const deleteaUser = async (req, res) => {
       deleteaUser,
     });
   } catch (error) {
-    throw new Error(error);
+    return res.status(401).send({error: ' Can not Delelte The User !'})
   }
 };
 
