@@ -1,4 +1,4 @@
-// File: /home/yara/final-project/capstone-team9/client/src/app/pages/profile/page.jsx
+// File: /usr/src/app/client/src/app/pages/profile/page.jsx
 import * as entry from '../../../../../src/app/pages/profile/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
