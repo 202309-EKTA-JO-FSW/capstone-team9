@@ -1,4 +1,4 @@
-import Profile from "./components/pages/profile/page";
+import Profile from "./pages/profile/page";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
 import Sidebar from "./components/layout/Sidebar";
@@ -12,8 +12,7 @@ export default function Home() {
         {/* <Sidebar /> */}
         <Profile />
       </div>
-      {/* <Footer/> */}
-
+      <Footer />
     </main>
   );
 }

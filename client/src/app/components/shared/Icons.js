@@ -8,4 +8,9 @@ export const Icons = {
     Attendence: require("../../assets/attendence.png").default,
     Logout: require("../../assets/logout.png").default,
     Profile: require("../../assets/profile.png").default,
+    Info: require("../../assets/info.png").default,
+    Calendar: require("../../assets/calendar.png").default,
+    Clock: require("../../assets/clock.png").default,
+    Group: require("../../assets/group.png").default,
+
 }
