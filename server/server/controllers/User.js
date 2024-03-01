@@ -1,6 +1,22 @@
 const jwt = require('jsonwebtoken')
 const User = require('../models/User')
 
+//Get All user
+
+const getAllUser = async(req,res)=>{
+
+  try
+  {
+const GetAlluser = await User.find();
+res.json(GetAlluser)
+
+  }
+  catch(error)
+  {
+   return res.status(401).send({error : 'There is No User! '})
+  }
+}
+
 const generateToken = async (user) => {
   return jwt.sign({ id: user.id }, process.env.JWT_SECRET , { expiresIn: '1h' });
 }
@@ -67,6 +83,7 @@ const signOut = async (req, res) => {
   }
 }
 
+//Get a single user
 const getuserDetials = async(req,res)=>{
     const {id} = req.params;
 
@@ -81,5 +98,46 @@ const getuserDetials = async(req,res)=>{
     }
 }
 
+// Update a user
 
-module.exports = { getuserDetials,signUp,signIn,signOut}
+const updatedUser = async (req, res) => {
+  const { _id } = req.user;
+
+  try {
+    const updatedUser = await User.findByIdAndUpdate(
+      _id,
+      {
+        FullName: req?.body?.FullName,
+        UserName: req?.body?.UserName,
+        Email: req?.body?.Email,
+        PhoneNumber: req?.body?.PhoneNumber,
+      },
+      {
+        new: true,
+      }
+    );
+    res.json(updatedUser);
+  } catch (error) {
+    return res.status(401).send({error: ' There is no Match, Please try again !'})
+  }
+};
+
+// delete a single user
+
+const deleteaUser = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const deleteaUser = await User.findByIdAndDelete(id);
+    res.json({
+      deleteaUser,
+    });
+  } catch (error) {
+    return res.status(401).send({error: ' Can not Delelte The User !'})
+  }
+};
+
+
+module.exports = { getuserDetials,updatedUser,deleteaUser,getAllUser,signUp,signIn,signOut}
+
+
