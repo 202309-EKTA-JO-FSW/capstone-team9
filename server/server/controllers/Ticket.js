@@ -1,4 +1,4 @@
-const Ticket = require('../models/ticket');
+const Ticket = require('../models/Tickets');
 
 // Get ticket details by ticket ID
 const getTicketById = async (ticketId) => {

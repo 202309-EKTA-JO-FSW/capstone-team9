@@ -75,7 +75,7 @@ const signOut = async (req, res) => {
       }
 
       user.token = null
-      await user.save();
+     // await user.save();
       
       res.status(200).json({ message: 'Signout successful' });
   } catch (err) {

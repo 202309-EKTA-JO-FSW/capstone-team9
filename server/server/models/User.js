@@ -34,7 +34,8 @@ const UserSchema = new mongoose.Schema({
   UserType:{
     type:Number,
     required:true,
-    default:"user"
+    //1 => admin , 2 => user
+    default:1
   },
   DateOfBirth:{
     type:Date
