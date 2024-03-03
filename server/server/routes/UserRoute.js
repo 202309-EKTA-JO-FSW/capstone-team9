@@ -8,5 +8,4 @@ router.put("/edit-user", User.updatedUser);
 router.delete("/:id", User.deleteaUser);
 
 
-
 module.exports = router;
