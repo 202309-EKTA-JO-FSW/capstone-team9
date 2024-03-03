@@ -117,6 +117,7 @@ const updatedUser = async (req, res) => {
       }
     );
     res.json(updatedUser);
+    res.status(200).json("User has been Updated.");
   } catch (error) {
     return res.status(401).send({error: ' There is no Match, Please try again !'})
   }
