@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 const Header = () => {
     const [currentPath, setCurrentPath] = useState("");
@@ -39,6 +40,8 @@ const Header = () => {
                         <button className="w-btn-width h-9.5 px-0 py-2 border-none rounded-lg bg-gray-900 text-white text-sm font-poppins focus:outline-none">Tickets</button>
                     </>
                 )}
+                
+                <Link href='/accounts/signin'><button className="w-btn-width h-9.5 px-0 py-2 border-none rounded-lg bg-gray-900 text-white text-sm font-poppins focus:outline-none">Signin</button></Link>
             </div>
         </nav>
 
