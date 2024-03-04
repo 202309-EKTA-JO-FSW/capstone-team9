@@ -6,11 +6,10 @@ import Sidebar from "./components/layout/Sidebar";
 export default function Home() {
   return (
     <main className="">
-
       <Header />
       <div className="flex gap-4">
         {/* <Sidebar /> */}
-        <Profile />
+        {/* <Profile /> */}
       </div>
       <Footer />
     </main>
