@@ -25,7 +25,7 @@ const EventSchema = new mongoose.Schema({
     required: true,
   },
  Creator: {
-    type: Number,
+   type: mongoose.Schema.Types.ObjectId,
     ref: User
   },
   Category:{

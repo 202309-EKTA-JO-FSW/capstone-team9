@@ -33,7 +33,9 @@ const UserSchema = new mongoose.Schema({
   },
   UserType:{
     type:Number,
-    required:true
+    required:true,
+    //1 => admin , 2 => user
+    default:1
   },
   DateOfBirth:{
     type:Date
@@ -42,6 +44,7 @@ const UserSchema = new mongoose.Schema({
     type:String
   }
 });
+
 
 const User = mongoose.model('User', UserSchema)
 module.exports = User
