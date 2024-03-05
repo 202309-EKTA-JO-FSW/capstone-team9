@@ -1,11 +1,17 @@
-import Test from "./components/Test";
+import Profile from "./pages/profile/page";
+import Header from "./components/layout/Header";
+import Footer from "./components/layout/Footer";
+import Sidebar from "./components/layout/Sidebar";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <Test />
+    <main className="">
+      <Header />
+      <div className="flex gap-4">
+        {/* <Sidebar /> */}
+        {/* <Profile /> */}
       </div>
+      <Footer />
     </main>
   );
 }

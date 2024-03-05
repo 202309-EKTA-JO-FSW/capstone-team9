@@ -1,12 +1,12 @@
 const mongoose = require("mongoose");
 
 const User = new mongoose.Schema({
-    UserID:{
-         type:Number,
-         required: true,
-         unique: true,
-    },
-    FullName: {
+  UserID: {
+    type: Number,
+    required: true,
+    unique: true,
+  },
+  FullName: {
     type: String,
     required: true,
     maxlength: 120,
@@ -27,19 +27,19 @@ const User = new mongoose.Schema({
   Address: {
     type: String
   },
-  PhoneNumber:{
-    type:String,
-    required:true
+  PhoneNumber: {
+    type: String,
+    required: true
   },
-  UserType:{
-    type:Number,
-    required:true
+  UserType: {
+    type: Number,
+    required: true
   },
-  DateOfBirth:{
-    type:Date
+  DateOfBirth: {
+    type: Date
   },
-  Nationality:{
-    type:String
+  Nationality: {
+    type: String
   }
 });
 
