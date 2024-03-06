@@ -13,6 +13,7 @@ export default function Home() {
         {/* <Sidebar /> */}
         {/* <Profile /> */}
  
+        {/* <Profile /> */}
       </div>
       <SignInComponent/>
       <Footer />
