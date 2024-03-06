@@ -3,11 +3,6 @@ const User = require("./User");
 const Event = require("./Event");
 
 const TicketSchema = new mongoose.Schema({
-    Ticket:{
-        type:Number,
-        required: true,
-        unique: true,
-    },
     EventID:{
       type: mongoose.Schema.Types.ObjectId,
       ref: Event,

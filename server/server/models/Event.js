@@ -2,11 +2,6 @@ const mongoose = require("mongoose");
 const User = require("./User");
 
 const EventSchema = new mongoose.Schema({
-    EventID:{
-         type:Number,
-         required: true,
-         unique: true,
-    },
     Title: {
     type: String,
     required: true

@@ -3,7 +3,7 @@ const Ticket = require('../models/Tickets');
 // Get ticket details by ticket ID
 const getTicketById = async (ticketId) => {
     try {
-        const ticket = await Ticket.findOne({ Ticket: ticketId })
+        const ticket = await Ticket.findById(ticketId)
             .populate('EventID')
             .populate('UserID');
 
@@ -28,8 +28,8 @@ const createTicket = async (ticketData) => {
 // Update ticket details by ticket ID
 const updateTicketById = async (ticketId, updatedData) => {
     try {
-        const updatedTicket = await Ticket.findOneAndUpdate(
-            { Ticket: ticketId },
+        const updatedTicket = await Ticket.findByIdAndUpdate(
+            ticketId,
             updatedData,
             { new: true } // Return the updated document
         );
@@ -43,7 +43,7 @@ const updateTicketById = async (ticketId, updatedData) => {
 // Delete a ticket by ticket ID
 const deleteTicketById = async (ticketId) => {
     try {
-        const deletedTicket = await Ticket.findOneAndDelete({ Ticket: ticketId });
+        const deletedTicket = await Ticket.findByIdAndDelete(ticketId);
         return deletedTicket;
     } catch (error) {
         console.error(error);
