@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const User = require("./User");
 
-const Event = new mongoose.Schema({
+const EventSchema = new mongoose.Schema({
     EventID:{
          type:Number,
          required: true,
@@ -24,8 +24,9 @@ const Event = new mongoose.Schema({
     type: String,
     required: true,
   },
-  Creator: {
-    type: User
+ Creator: {
+   type: mongoose.Schema.Types.ObjectId,
+    ref: User
   },
   Category:{
     type:String,
@@ -57,4 +58,5 @@ const Event = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model("Event", Event);
+const Event = mongoose.model('Event', EventSchema)
+module.exports = Event
