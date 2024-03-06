@@ -101,7 +101,7 @@ const getuserDetials = async(req,res)=>{
 
 // Update a user
 
-/*const updatedUser = async (req, res) => {
+const updatedUser = async (req, res) => {
   try {
     const updatedUser = await User.findByIdAndUpdate(
       req.params.id,
@@ -114,19 +114,7 @@ const getuserDetials = async(req,res)=>{
   } catch (error) {
     return res.status(401).send({error: ' There is no Match, Please try again !'})
   }
-};*/
-const updatedUser = async (req,res,next)=>{
-  try {
-    const updatedUser = await User.findByIdAndUpdate(
-      req.params.id,
-      { $set: req.body },
-      { new: true }
-    );
-    res.status(200).json(updatedUser);
-  } catch (err) {
-    next(err);
-  }
-}
+};
 
 // delete a single user
 
