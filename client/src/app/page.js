@@ -10,7 +10,7 @@ export default function Home() {
       <Header />
       <div className="flex gap-4">
         {/* <Sidebar /> */}
-        <Profile />
+        {/* <Profile /> */}
       </div>
       <Footer />
     </main>

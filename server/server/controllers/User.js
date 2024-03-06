@@ -24,12 +24,12 @@ const generateToken = async (user) => {
 
 const signUp = async (req, res) => {
 
-  const { UserID, FullName, UserName,Email,Password,Address,PhoneNumber,UserType,DateOfBirth,Nationality } = req.body;
+  const { FullName, UserName,Email,Password,Address,PhoneNumber,UserType,DateOfBirth,Nationality } = req.body;
 
   try {
 
       if (UserName && Email && Password) {
-          const user = await User.create({UserID, FullName, UserName,Email,Password,Address,PhoneNumber,UserType,DateOfBirth,Nationality});    
+          const user = await User.create({FullName, UserName,Email,Password,Address,PhoneNumber,UserType,DateOfBirth,Nationality});    
 
           const token = await generateToken(user);
           res.status(200).json({ message: 'Sign-up successful', user, token})
@@ -70,7 +70,7 @@ const signIn = async (req, res) => {
 const signOut = async (req, res) => {
   const userId = req.body.UserID
   try {
-      const user = await User.find({ UserID: userId });
+      const user = await User.findById(userId);
       if (!user) {
           return res.status(404).json({ message: 'User not found' });
       }
