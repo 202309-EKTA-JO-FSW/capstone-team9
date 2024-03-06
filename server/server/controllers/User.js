@@ -6,6 +6,7 @@ const User = require('../models/User')
 const getAllUser = async(req,res)=>{
 
   try
+
   {
 const GetAlluser = await User.find();
 res.json(GetAlluser)
@@ -100,44 +101,46 @@ const getuserDetials = async(req,res)=>{
 
 // Update a user
 
-const updatedUser = async (req, res) => {
-  const { _id } = req.user;
-
+/*const updatedUser = async (req, res) => {
   try {
     const updatedUser = await User.findByIdAndUpdate(
-      _id,
-      {
-        FullName: req?.body?.FullName,
-        UserName: req?.body?.UserName,
-        Email: req?.body?.Email,
-        PhoneNumber: req?.body?.PhoneNumber,
-      },
-      {
-        new: true,
-      }
+      req.params.id,
+      { $set: req.body },
+      { new: true }
     );
+
     res.json(updatedUser);
     res.status(200).json("User has been Updated.");
   } catch (error) {
     return res.status(401).send({error: ' There is no Match, Please try again !'})
   }
-};
+};*/
+const updatedUser = async (req,res,next)=>{
+  try {
+    const updatedUser = await User.findByIdAndUpdate(
+      req.params.id,
+      { $set: req.body },
+      { new: true }
+    );
+    res.status(200).json(updatedUser);
+  } catch (err) {
+    next(err);
+  }
+}
 
 // delete a single user
 
-const deleteaUser = async (req, res) => {
-  const { id } = req.params;
 
+
+const deleteaUser = async (req,res,next)=>{
   try {
-    const deleteaUser = await User.findByIdAndDelete(id);
-    res.json({
-      deleteaUser,
-    });
+    await User.findByIdAndDelete(req.params.id);
+    res.status(200).json("User has been deleted.");
   } catch (error) {
     return res.status(401).send({error: ' Can not Delelte The User !'})
+    next(err);
   }
-};
-
+}
 
 module.exports = { getuserDetials,updatedUser,deleteaUser,getAllUser,signUp,signIn,signOut}
 

@@ -6,6 +6,7 @@ const UserSchema = new mongoose.Schema({
          required: true,
          unique: true,
     },
+    
     FullName: {
     type: String,
     required: true,
@@ -42,7 +43,8 @@ const UserSchema = new mongoose.Schema({
   },
   Nationality:{
     type:String
-  }
+  },
+
 });
 
 
