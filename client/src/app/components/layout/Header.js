@@ -41,7 +41,7 @@ const Header = () => {
                     </>
                 )}
                 
-                <Link href='/accounts/signin'><button className="w-btn-width h-9.5 px-0 py-2 border-none rounded-lg bg-gray-900 text-white text-sm font-poppins focus:outline-none">Signin</button></Link>
+                <Link href='/pages/signin'><button className="w-btn-width h-9.5 px-0 py-2 border-none rounded-lg bg-gray-900 text-white text-sm font-poppins focus:outline-none">Signin</button></Link>
             </div>
         </nav>
 
