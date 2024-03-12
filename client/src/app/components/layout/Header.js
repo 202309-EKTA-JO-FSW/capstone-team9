@@ -1,8 +1,31 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-
+import { useRouter } from 'next/navigation';
+import Cookies from 'js-cookie';
+import Jwt from 'jsonwebtoken';
 const Header = () => {
+
+    const [user, setUser] = useState(null);
+    const router = useRouter();
+
+    useEffect(() => {
+        if (user === null) {
+            const token = Cookies.get('jwt');
+            if (token) {
+                const decodedToken = Jwt.decode(token);
+                const { _id, type } = decodedToken;
+                setUser({ id: _id, type: type });
+            }
+        }
+    }, [user]);
+
+    const handleLogout = () => {
+        Cookies.remove('jwt');
+        setUser(null);
+        router.push('/');
+    };
+
     const [currentPath, setCurrentPath] = useState("");
 
     useEffect(() => {
@@ -41,7 +64,37 @@ const Header = () => {
                     </>
                 )}
                 
-                <Link href='/pages/signin'><button className="w-btn-width h-9.5 px-0 py-2 border-none rounded-lg bg-gray-900 text-white text-sm font-poppins focus:outline-none">Signin</button></Link>
+
+                    {user ? (
+                                    <>
+                                 <Link href="/profile">
+                                                <span className="w-btn-width h-9.5 px-0 py-2 border-none rounded-lg bg-gray-900 text-white text-sm font-poppins focus:outline-none">
+                                                    Profile Settings
+                                                </span>
+                                            </Link>
+                                            <button
+                                                className="w-btn-width h-9.5 px-0 py-2 border-none rounded-lg bg-gray-900 text-white text-sm font-poppins focus:outline-none"
+                                                onClick={handleLogout}
+                                            >
+                                                Sign out
+                                            </button>
+                                            </>
+                            ) : (
+                                <>
+                                    <Link href="/pages/signin">
+                                        <span className="w-btn-width h-9.5 px-0 py-2 border-none rounded-lg bg-gray-900 text-white text-sm font-poppins focus:outline-none">
+                                            Sign In
+                                        </span>
+                                    </Link>
+                                    <Link href="/pages/signup">
+                                        <span className="w-btn-width h-9.5 px-0 py-2 border-none rounded-lg bg-gray-900 text-white text-sm font-poppins focus:outline-none">
+                                            Sign Up
+                                        </span>
+                                    </Link>
+
+
+                                </>
+                            )}
             </div>
         </nav>
 
