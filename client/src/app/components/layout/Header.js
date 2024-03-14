@@ -67,13 +67,13 @@ const Header = () => {
 
                     {user ? (
                                     <>
-                                 <Link href="/profile">
-                                                <span className="w-btn-width h-9.5 px-0 py-2 border-none rounded-lg bg-gray-900 text-white text-sm font-poppins focus:outline-none">
+                                 <Link href="/profile" className="w-btn-width h-9.5 px-0 py-2 border-none rounded-lg bg-gray-900 text-white text-sm font-poppins focus:outline-none text-center">
+                                                <span>
                                                     Profile Settings
                                                 </span>
                                             </Link>
                                             <button
-                                                className="w-btn-width h-9.5 px-0 py-2 border-none rounded-lg bg-gray-900 text-white text-sm font-poppins focus:outline-none"
+                                                className="w-btn-width h-9.5 px-0 py-2 border-none rounded-lg bg-gray-900 text-white text-sm font-poppins focus:outline-none text-center"
                                                 onClick={handleLogout}
                                             >
                                                 Sign out
@@ -81,13 +81,13 @@ const Header = () => {
                                             </>
                             ) : (
                                 <>
-                                    <Link href="/pages/signin">
-                                        <span className="w-btn-width h-9.5 px-0 py-2 border-none rounded-lg bg-gray-900 text-white text-sm font-poppins focus:outline-none">
+                                    <Link href="/pages/signin" className="w-btn-width h-9.5 px-0 py-2 border-none rounded-lg bg-gray-900 text-white text-sm font-poppins focus:outline-none text-center">
+                                        <span>
                                             Sign In
                                         </span>
                                     </Link>
-                                    <Link href="/pages/signup">
-                                        <span className="w-btn-width h-9.5 px-0 py-2 border-none rounded-lg bg-gray-900 text-white text-sm font-poppins focus:outline-none">
+                                    <Link href="/pages/signup" className="w-btn-width h-9.5 px-0 py-2 border-none rounded-lg bg-gray-900 text-white text-sm font-poppins focus:outline-none text-center">
+                                        <span>
                                             Sign Up
                                         </span>
                                     </Link>
