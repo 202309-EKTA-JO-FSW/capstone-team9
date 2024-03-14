@@ -26,7 +26,7 @@ const SignIn = () => {
             if (response.ok) {
                 const data = await response.json();
                 Cookies.set('jwt', data.token);
-                router.refresh()
+                router.refresh();
                 router.push('/pages/profile');
             } else {
                 const errorData = await response.json();
