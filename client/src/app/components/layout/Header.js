@@ -19,10 +19,10 @@ const Header = () => {
                         <h1 className='logo text-black text-lg font-semibold font-poppins leading-9 mr-4'>EventMast</h1>
                         <ul className='flex gap-8 text-black'>
                             <li className='text-sm'>
-                                <Link href="/LandingEvent" className="hover:text-gray-700">Events</Link>
+                                <Link href="/pages/Events/SearchEvents" className="hover:text-gray-700">Events</Link>
                             </li>
                             <li className='text-sm'>
-                                <Link href="/AddDeleteEvent" className="hover:text-gray-700">ADD and Delete Events</Link>
+                                <Link href="/pages/Events/AddDeleteEvents" className="hover:text-gray-700">ADD and Delete Events</Link>
                             </li>
                             <li className='text-sm'>
                                 <a href="#" className="hover:text-gray-700">Upcoming</a>
