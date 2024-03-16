@@ -31,9 +31,9 @@ const EventSchema = new mongoose.Schema({
     type:String,
     required:true
   },
-  Image:{
-    type:String,
-    required:true
+  Image: {
+    data: Buffer,
+    contentType: String,
   },
   Featured:{
     type: Boolean,

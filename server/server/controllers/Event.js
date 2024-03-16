@@ -1,10 +1,37 @@
 const Event = require('../models/Event')
+const multer = require('multer');
+
+const storage = multer.memoryStorage(); // Store images in memory as Buffer
+const upload = multer({ storage: storage });
 
 const addNewEvent = async (req, res) => {
-    const event = req.body
     try {
-        const newEvent = await Event.create(event)
-        res.status(201).json({message:'Event Added Successfully!', newEvent})
+        // Extract other form data
+        const { Title, Description, StartDateTime, EndDateTime ,Category ,Location,Featured,Popular, Price,NumberOfAttendees } = req.body;
+    
+        // Handle image
+        const image = {
+          data: req.file.buffer,
+          contentType: req.file.mimetype,
+        };
+    
+        // Create a new event with the image data
+        const newEvent = new Event({
+          Title,
+          Description,
+          StartDateTime,
+          EndDateTime ,
+          Category,
+          Location,
+          Featured,
+          Popular, 
+          Price,
+          NumberOfAttendees,
+          Image: image,
+        });
+    
+          await newEvent.save();
+          res.status(201).json({message:'Event Added Successfully!', newEvent})
     } catch (err) {
         res.status(422).json({ message: 'Error Adding Event', error: err.message})
     }
@@ -89,6 +116,15 @@ const getPopularEvent = async (_, res) => {
  }
  }
  
-
- module.exports = { addNewEvent, updateEvent,getEvents, getPopularEvent, getFeaturedEvent, getSliderEvent, getEventDetials}
+ const deleteaEvent = async (req,res,next)=>{
+    try {
+      await Event.findByIdAndDelete(req.params.id);
+      res.status(200).json("Event has been deleted.");
+    } catch (error) {
+      return res.status(401).send({error: ' Can not Delelte The Event !'})
+      next(err);
+    }
+  }
+  
+ module.exports = { addNewEvent, updateEvent,getEvents, getPopularEvent, getFeaturedEvent, getSliderEvent, getEventDetials,deleteaEvent}
 
