@@ -14,8 +14,8 @@ const Header = () => {
             const token = Cookies.get('jwt');
             if (token) {
                 const decodedToken = Jwt.decode(token);
-                const { _id, type } = decodedToken;
-                setUser({ id: _id, type: type });
+                const { _id, UserType } = decodedToken;
+                setUser({ id: _id, UserType: UserType });
             }
         }
     }, [user]);
@@ -58,16 +58,15 @@ const Header = () => {
                 {currentPath === "/pages/reservation" ? (
                     <button className="w-btn-width h-9.5 px-0 py-2 border-none rounded-lg bg-gray-900 text-white text-sm font-poppins focus:outline-none">Buy Tickets</button>
                 ) : (
-                    <>
-                        <button className="w-btn-width h-9.5 px-0 py-2 border-none rounded-lg bg-gray-900 text-white text-sm font-poppins focus:outline-none">Back</button>
-                        <button className="w-btn-width h-9.5 px-0 py-2 border-none rounded-lg bg-gray-900 text-white text-sm font-poppins focus:outline-none">Tickets</button>
+                    <>                     
                     </>
                 )}
                 
 
                     {user ? (
                                     <>
-                                 <Link href="/profile" className="w-btn-width h-9.5 px-0 py-2 border-none rounded-lg bg-gray-900 text-white text-sm font-poppins focus:outline-none text-center">
+                                       <button className="w-btn-width h-9.5 px-0 py-2 border-none rounded-lg bg-gray-900 text-white text-sm font-poppins focus:outline-none">Tickets</button>
+                                 <Link href="/pages/profile" className="w-btn-width h-9.5 px-0 py-2 border-none rounded-lg bg-gray-900 text-white text-sm font-poppins focus:outline-none text-center">
                                                 <span>
                                                     Profile Settings
                                                 </span>

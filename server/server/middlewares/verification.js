@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 
 module.exports = (req, res, next) => {
   const token = req.headers.authorization;
-  redirect = '/user/signin'
+  redirect = 'http://localhost:3000/pages/signin'
 
   if (!token) {
     if (req.method === 'GET') res.status(403).json('redirecting user to signIn');

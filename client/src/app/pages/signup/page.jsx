@@ -2,6 +2,8 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { Icons } from '../../components/shared/Icons';
+import Image from 'next/image';
 
 const SignUp = () => {
     const [FullName, setFullName] = useState('');
@@ -45,6 +47,8 @@ const SignUp = () => {
         <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
             <div className="max-w-md w-full space-y-8">
                 <div>
+                <Image className='mx-auto h-10 w-auto' src={Icons.logo} alt="Eventure" />
+
                     <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
                         Create a new account
                     </h2>
@@ -64,7 +68,7 @@ const SignUp = () => {
                                 autoComplete="fullname"
                                 required
                                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                                placeholder="fullname"
+                                placeholder="Full name"
                                 value={FullName}
                                 onChange={(e) => setFullName(e.target.value)}
                             />
