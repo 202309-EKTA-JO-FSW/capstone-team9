@@ -12,5 +12,5 @@ export const Icons = {
     Calendar: require("../../assets/calendar.png").default,
     Clock: require("../../assets/clock.png").default,
     Group: require("../../assets/group.png").default,
-
+    logo: require("../../assets/Blacklogo.svg").default,
 }

@@ -2,27 +2,53 @@
 import React, { useState, useEffect } from 'react';
 import Sidebar from '../../app/components/layout/Sidebar';
 import Image from 'next/image';
+<<<<<<< HEAD
 import { Icons } from '../../app/components/shared/Icons';
 
+=======
+import { Icons } from '../../components/shared/Icons';
+import { useRouter } from 'next/navigation';
+import Cookies from 'js-cookie';
+import Jwt from 'jsonwebtoken';
+>>>>>>> origin
 const Profile = () => {
   const [userInfo, setUserInfo] = useState(null);
+  const router = useRouter();
+  const token = Cookies.get('jwt');
+
+  async function fetchUserInfo() {
+    const decodedToken = Jwt.decode(token);
+    
+    let id = 0;
+    if(decodedToken!=null){
+      id =decodedToken.id
+    }
+
+    try {
+      const response = await fetch(`http://localhost:3001/user/getuserDetials/${id}`,{
+        headers: {
+           'authorization': `${token}`
+      },
+      });
+      if (!response.ok) {
+        console.log(response);
+        Cookies.remove('jwt');
+        setUserInfo(null);
+        router.push('/');
+        throw new Error('Failed to fetch user info');
+      }
+      const userData = await response.json();
+      setUserInfo(userData);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+ 
 
   useEffect(() => {
-    const fetchUserInfo = async () => {
-      try {
-        const response = await fetch(`/api/user`);
-        if (!response.ok) {
-          throw new Error('Failed to fetch user info');
-        }
-        const userData = await response.json();
-        setUserInfo(userData);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
     fetchUserInfo();
-  }, []);
+  }, [userInfo]);
 
   return (
     <div className='flex gap-10'>
@@ -32,7 +58,7 @@ const Profile = () => {
           <h1 className='text-2xl font-normal'>Profile Information</h1>
           <p className='text-gray-500 text-sm'>Edit Profile Details</p>
         </div>
-        <Image className='rounded-full content-center object-cover' src={Icons.Profile} height={80} width={80} />
+        <Image alt='profile' className='rounded-full content-center object-cover' src={Icons.Profile} height={80} width={80} />
         <div className='grid grid-cols-3 gap-7'>
 
           <p>Full Name: </p>
