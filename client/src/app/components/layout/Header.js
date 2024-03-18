@@ -53,7 +53,7 @@ const Header = () => {
                             </li>
                             <li className='text-sm'>
                                 <a href="#" className="hover:text-gray-700">Popular</a>
-                            </li>ك 
+                            </li>
                         </ul>
                     </>
                 )}
