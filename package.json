@@ -1,5 +1,16 @@
 {
   "dependencies": {
     "morgan": "^1.10.0"
-  }
+  },
+  "name": "capstone-team9",
+  "description": "Welcome to the Capstone Full-Stack Template! This repository is a starting point for full-stack development capstone projects, featuring a backend Express server with MongoDB, and a frontend Next.js client, both dockerized for ease of development and deployment.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
