@@ -16,6 +16,7 @@ const Header = () => {
                 const decodedToken = Jwt.decode(token);
                 const { _id, UserType } = decodedToken;
                 setUser({ id: _id, UserType: UserType });
+             
             }
         }
     }, [user]);
