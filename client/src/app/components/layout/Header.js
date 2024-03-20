@@ -1,5 +1,4 @@
 "use client";
-import Link from "next/link";
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -36,17 +35,20 @@ const Header = () => {
     return (
         <nav className={`bg-white flex flex-col sm:flex-row justify-between items-center px-10 h-20 ${currentPath === "/pages/reservation" ? 'border-none' : 'border-b border-gray-200'}`}>
             <div className="flex items-center">
-                {currentPath === "/pages/reservation" ? (
+                {currentPath === "/pages/" ? (
                     <h1 className='logo text-black text-lg font-semibold font-poppins leading-9 mr-4'>Event Name</h1>
                 ) : (
                     <>
                         <h1 className='logo text-black text-lg font-semibold font-poppins leading-9 mr-4'>EventMast</h1>
                         <ul className='flex gap-8 text-black'>
                             <li className='text-sm'>
-                                <Link href="/pages/Events/SearchEvents" className="hover:text-gray-700">Events</Link>
+                            <Link href="/pages/Events/SearchEvents"  className="hover:text-gray-700">Events</Link>
                             </li>
                             <li className='text-sm'>
-                                <Link href="/pages/Events/AddDeleteEvents" className="hover:text-gray-700">ADD and Delete Events</Link>
+                                <Link href="/pages/Events/AddEvents" className="hover:text-gray-700">ADD Events</Link>
+                            </li>
+                            <li className='text-sm'>
+                                <Link href="/pages/Events/DeleteEvents" className="hover:text-gray-700">Delete Events</Link>
                             </li>
                             <li className='text-sm'>
                                 <a href="#" className="hover:text-gray-700">Upcoming</a>

@@ -6,9 +6,9 @@ const searchEventsByLocationAndDateAndAttendees = async (req, res) => {
         const { Location, StartDateTime, EndDateTime ,NumberOfAttendees,Category, minPrice, maxPrice} = req.query;
     
         // Check if at least one of location, startDate, or endDate is provided
-        if (!Location && !StartDateTime && !EndDateTime && !NumberOfAttendees && !Category && !minPrice  &&  !maxPrice) {
-          return res.status(400).json({ message: "Please provide at least one of location, startDate, ,NumberOfAttendees ,Category, or endDate." });
-        }
+      //  if (!Location && !StartDateTime && !EndDateTime && !NumberOfAttendees && !Category && !minPrice  &&  !maxPrice) {
+        //  return res.status(400).json({ message: "Please provide at least one of location, startDate, ,NumberOfAttendees ,Category, or endDate." });
+       // }
     
         // Build the query based on the provided criteria
         const query = {};

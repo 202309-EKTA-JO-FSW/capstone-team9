@@ -2,10 +2,8 @@ import React, { useState, useEffect } from 'react';
 
 const EventForm = () => {
   const [events, setEvents] = useState([]);
-  const [selectedEvents, setSelectedEvents] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [deleteMessage, setDeleteMessage] = useState(null); // State for delete success message
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -26,34 +24,25 @@ const EventForm = () => {
     fetchEvents();
   }, []);
 
-  const handleCheckboxChange = (event) => {
-    const eventId = event.target.value;
-    setSelectedEvents((prevSelectedEvents) =>
-      prevSelectedEvents.includes(eventId)
-        ? prevSelectedEvents.filter((id) => id !== eventId)
-        : [...prevSelectedEvents, eventId]
-    );
-  };
-
-  const handleDeleteSelectedEvents = async () => {
+  const handleDeleteSelectedEvents = async (id) => {
     try {
-      await Promise.all(
-        selectedEvents.map(async (id) => {
-          await fetch(`http://localhost:3001/event/deleteaEvent/${id}`, {
-            method: 'DELETE',
-          });
-        })
-      );
-      // Remove the deleted events from the events array
-      setEvents((prevEvents) =>
-        prevEvents.filter((event) => !selectedEvents.includes(event._id))
-      );
-      // Clear the selected events array
-      setSelectedEvents([]);
-      // Set delete message
-      setDeleteMessage('Selected events deleted successfully!');
+      const response = await fetch(`http://localhost:3001/event/deleteaEvent/${id}`, {
+        method: 'DELETE',
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to delete event');
+      }
+
+      // Remove the deleted event from the events array
+      setEvents((prevEvents) => prevEvents.filter((event) => event._id !== id));
+
+      // Show toast for successful deletion
+      toast.success('Event deleted successfully!');
     } catch (error) {
-      console.error('Error deleting selected events:', error);
+      console.error('Error deleting event:', error);
+
+
     }
   };
 
@@ -66,27 +55,71 @@ const EventForm = () => {
   }
 
   return (
-    <div>
-      <h1>List of Events</h1>
-      {deleteMessage && <div style={{ color: 'green' }}>{deleteMessage}</div>} {/* Display delete success message with green color */}
-      <button style={{ backgroundColor: 'black', color: 'white' }} onClick={handleDeleteSelectedEvents}>Delete Selected Events</button> {/* Black button with white text */}
-      <ul>
-        {events.map((event) => (
-          <li key={event._id}>
-            <input
-              type="checkbox"
-              value={event._id}
-              checked={selectedEvents.includes(event._id)}
-              onChange={handleCheckboxChange}
-            />
-            <label>{event.Title}</label>
-            <p>Category: {event.Category}</p>
-            <p>Description: {event.Description}</p>
-            <p>Location: {event.Location}</p>
-            {/* Add more event details as needed */}
-          </li>
-        ))}
-      </ul>
+    <div className="container mx-auto px-4 sm:px-8 py-8">
+      <div>
+        <h2 className="text-2xl font-semibold leading-tight">List of All Events : </h2>
+      </div>
+      <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
+        <div className="inline-block min-w-full shadow-md rounded-lg overflow-hidden">
+          <table className="min-w-full leading-normal">
+            <thead>
+              <tr>
+                <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Title</th>
+                <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Category</th>
+                <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Description</th>
+                <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Location</th>
+                <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">StartDateTime</th>
+                <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">EndDateTime</th>
+                <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">NumberOfAttendees</th>
+                <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"></th>
+
+                <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100"></th>
+              </tr>
+            </thead>
+            <tbody>
+              {events.map((event) => (
+                <tr key={event._id}>
+                  <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                    <div className="flex">
+                      <div className="ml-3">
+                        <p className="text-gray-900 whitespace-no-wrap">{event.Title}</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                    <p className="text-gray-900 whitespace-no-wrap">{event.Category}</p>
+                  </td>
+                  <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                    <p className="text-gray-900 whitespace-no-wrap">{event.Description}</p>
+                  </td>
+                  <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                    <p className="text-gray-900 whitespace-no-wrap">{event.Location}</p>
+                  </td>
+                  <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                    <p className="text-gray-900 whitespace-no-wrap">{event.StartDateTime}</p>
+                  </td>
+                  <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                    <p className="text-gray-900 whitespace-no-wrap">{event.EndDateTime}</p>
+                  </td>
+                  <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                    <p className="text-gray-900 whitespace-no-wrap">{event.NumberOfAttendees}</p>
+                  </td>
+                  <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm text-right">
+                  </td>
+                  <td>
+                    <button
+                      className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+                      onClick={() => handleDeleteSelectedEvents(event._id)}
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   );
 };
