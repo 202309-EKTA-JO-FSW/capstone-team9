@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const SerachEvent = ({ onSearch }) => {
   const [formData, setFormData] = useState({
     Title: '',
-    startDate: '',
-    endDate: '',
-    numberOfAttendees: '',
-    Creator: '',
+    StartDateTime: '',
+    EndDateTime: '',
+    NumberOfAttendees: '',
   });
+  const [searchDelay, setSearchDelay] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -18,13 +18,15 @@ const SerachEvent = ({ onSearch }) => {
   };
 
   const handleSearch = () => {
-    // Call the onSearch prop with the search parameters
-    onSearch(formData);
+    if (searchDelay) {
+      clearTimeout(searchDelay);
+    }
+    setSearchDelay(setTimeout(() => onSearch(formData), 500)); // Debounce search with a delay of 500ms
   };
 
   return (
     <div>
-      <h1 style={{ fontSize: '2rem', fontWeight: 'bold' }}>Event Search : </h1>
+      <h1 style={{ fontSize: '2rem', fontWeight: 'bold' }}> Sort by : </h1>
 
       <div className="flex-1 mr-2">
         <label className="block text-sm font-medium text-gray-600">Title:</label>
@@ -42,8 +44,8 @@ const SerachEvent = ({ onSearch }) => {
         <label className="block text-sm font-medium text-gray-600">Start Date:</label>
         <input
           type="date"
-          name="startDate"
-          value={formData.startDate}
+          name="StartDateTime"
+          value={formData.StartDateTime}
           onChange={handleChange}
           className="mt-1 p-2 w-full border rounded-md"
           required // Add required attribute
@@ -54,8 +56,8 @@ const SerachEvent = ({ onSearch }) => {
         <label className="block text-sm font-medium text-gray-600">End Date:</label>
         <input
           type="date"
-          name="endDate"
-          value={formData.endDate}
+          name="EndDateTime"
+          value={formData.EndDateTime}
           onChange={handleChange}
           className="mt-1 p-2 w-full border rounded-md"
           required // Add required attribute
@@ -66,8 +68,8 @@ const SerachEvent = ({ onSearch }) => {
         <label className="block text-sm font-medium text-gray-600">Number of Attendees:</label>
         <input
           type="number"
-          name="numberOfAttendees"
-          value={formData.numberOfAttendees}
+          name="NumberOfAttendees"
+          value={formData.NumberOfAttendees}
           onChange={handleChange}
           className="mt-1 p-2 w-full border rounded-md"
           required // Add required attribute

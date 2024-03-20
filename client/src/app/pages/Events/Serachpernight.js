@@ -43,7 +43,7 @@ const EventSearchPerNight = () => {
 
   return (
     <div>
-      <h1>Event Search per Night : </h1>
+      <h1 style={{ fontSize: '2rem', fontWeight: 'bold' }} > Price Per Event : </h1>
       <div>
         <label>
           <input
@@ -77,12 +77,7 @@ const EventSearchPerNight = () => {
 
       {Object.values(priceRanges).some((value) => value) && (
   <div>
-    <h2>Filtered Events</h2>
-    <ul>
-      {events.map((event) => (
-        <li key={event._id}>{event.Title} {event.Category} {event.Location} - Price: {event.Price}</li>
-      ))}
-    </ul>
+    
   </div>
 )}
     </div>

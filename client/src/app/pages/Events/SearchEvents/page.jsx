@@ -4,64 +4,89 @@ import React, { useState, useEffect } from 'react';
 import SerachEvent from '../SerachEvent';
 import SearchPerNight from '../Serachpernight';
 
+
 const App = () => {
   const [searchResults, setSearchResults] = useState([]);
-
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
   const handleSearch = async (searchParams) => {
-    // Replace this with your actual API endpoint and query parameters
+
+    setLoading(true);
+
     const apiUrl = `http://localhost:3001/search/searchEvent?${new URLSearchParams(searchParams)}`;
 
     try {
+      // Fetch data from the API
       const response = await fetch(apiUrl);
+
+      // Check if the response is successful
+      if (!response.ok) {
+        // If response is not ok, throw an error
+        throw new Error('Failed to fetch events');
+      }
+
+      // Parse the JSON response
       const data = await response.json();
+
+      // Update the search results state with the fetched data
       setSearchResults(data);
+
+      // Reset error state
+      setError(null);
     } catch (error) {
+      // If an error occurs during the fetch operation, log the error and set error state
       console.error('Error searching events:', error);
+      setError(error.message);
+    } finally {
+      // Set loading state to false when the search operation completes
+      setLoading(false);
+      console.log('Search Parameters:', searchParams);
+
     }
   };
+  useEffect(() => {
+    // Initial search or search parameter changes
+    // Pass empty searchParams to trigger initial search
+    handleSearch({});
+  }, []); // Empty dependency array ensures the effect runs only once after initial render
 
   const renderImage = (imageData, contentType) => {
-    // Check if imageData and imageData.data exist
     if (imageData && imageData.data) {
       const uint8Array = new Uint8Array(imageData.data);
       const blob = new Blob([uint8Array], { type: contentType });
       const imageUrl = URL.createObjectURL(blob);
-      return <img src={imageUrl} alt="Event Image" width='300' height='300' />;
+      return <img src={imageUrl} alt="Event Image" width="300" height="300" />;
     } else {
-      return <p>No image available</p>; // Or any other fallback content
+      return <p>No image available</p>;
     }
   };
 
   return (
-    <div>
+    <div className="container mx-auto px-4 sm:px-8 py-8">
       <SerachEvent onSearch={handleSearch} />
-      {/* Display search results */}
-      <div>
-        <h2>Search Results</h2>
-        <ul>
-    <div>
-        {searchResults && searchResults.length > 0 && (
-          <ul>
-            {searchResults.map((event) => (
-        <li key={event._id}>
-          <h3>{event.Title}</h3>
-          <p>Description: {event.Description}</p>
-          <p>Category: {event.Category}</p>
-              <p>Location: {event.Location}</p>
-              <p>Start Date: {event.StartDateTime && new Date(event.StartDateTime).toLocaleDateString()}</p>
-              <p>End Date: {event.EndDateTime && new Date(event.EndDateTime).toLocaleDateString()}</p>
-              <p>Number of Attendees: {event.NumberOfAttendees}</p>
-              <p>Price: {event.Price}</p>
-              <p>Creator: {event.Creator}</p>
-              {/* Render image if available */}
-              {event.Image && renderImage(event.Image.data, event.contentType, 300, 300)}        </li>
-                  ))}
-                </ul>
-              )}
-              {(!searchResults || searchResults.length === 0) && <p>No search results found.</p>}
-            </div>
-          <SearchPerNight />
-        </ul>
+      <div className="mt-8">
+        <h2 className="text-2xl font-semibold mb-4">Event Details:  </h2>
+        <div>
+          {searchResults && searchResults.length > 0 ? (
+            <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {searchResults.map((event) => (
+                <li key={event._id} className="bg-white rounded-lg shadow-md p-6">
+                  <h3 className="text-xl font-semibold mb-4">{event.Title}</h3>
+                  <p className="mb-2"><span className="font-semibold">Description:</span> {event.Description}</p>
+                  <p className="mb-2"><span className="font-semibold">Category:</span> {event.Category}</p>
+                  <p className="mb-2"><span className="font-semibold">Location:</span> {event.Location}</p>
+                  <p className="mb-2"><span className="font-semibold">Start Date:</span> {event.StartDateTime && new Date(event.StartDateTime).toLocaleDateString()}</p>
+                  <p className="mb-2"><span className="font-semibold">End Date:</span> {event.EndDateTime && new Date(event.EndDateTime).toLocaleDateString()}</p>
+                  <p className="mb-2"><span className="font-semibold">Number of Attendees:</span> {event.NumberOfAttendees}</p>
+                  <p className="mb-2"><span className="font-semibold">Price:</span> {event.Price}</p>
+                  {event.Image && renderImage(event.Image.data, event.contentType)}
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p>No search results found.</p>
+          )}
+        </div>
       </div>
     </div>
   );
