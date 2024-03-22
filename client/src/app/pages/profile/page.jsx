@@ -2,15 +2,10 @@
 import React, { useState, useEffect } from 'react';
 import Sidebar from '../../app/components/layout/Sidebar';
 import Image from 'next/image';
-<<<<<<< HEAD
-import { Icons } from '../../app/components/shared/Icons';
-
-=======
 import { Icons } from '../../components/shared/Icons';
 import { useRouter } from 'next/navigation';
 import Cookies from 'js-cookie';
 import Jwt from 'jsonwebtoken';
->>>>>>> origin
 const Profile = () => {
   const [userInfo, setUserInfo] = useState(null);
   const router = useRouter();
