@@ -41,36 +41,42 @@ const Header = () => {
                     <h1 className='logo text-black text-lg font-semibold font-poppins leading-9 mr-4'>Event Name</h1>
                 ) : (
                     <>
-                        <Image className='mx-auto h-10 w-auto leading-9 mr-4' src={Icons.logo} alt="Eventure" />
+                      <Link href="/"  className="hover:text-gray-700"> <Image className='mx-auto h-10 w-auto leading-9 mr-4' src={Icons.logo} alt="Eventure" /></Link> 
                         <ul className='flex gap-8 text-black'>
                             <li className='text-sm'>
                             <Link href="/pages/Events/SearchEvents"  className="hover:text-gray-700">Events</Link>
                             </li>
+                            {user ? (
+                                    <>
+                                     {/* {user.UserType === 1 && (
+                                         <> */}
                             <li className='text-sm'>
                                 <Link href="/pages/Events/AddEvents" className="hover:text-gray-700">ADD Events</Link>
                             </li>
                             <li className='text-sm'>
                                 <Link href="/pages/Events/DeleteEvents" className="hover:text-gray-700">Delete Events</Link>
                             </li>
+                            {/* </>)} */}
+                            </>):(<></>)}
                             <li className='text-sm'>
-                                <a href="#" className="hover:text-gray-700">Upcoming</a>
+                                <a href="/pages/Events/FeaturedEvents" className="hover:text-gray-700">Featured</a>
                             </li>
                             <li className='text-sm'>
-                                <a href="#" className="hover:text-gray-700">Popular</a>
+                                <a href="/pages/Events/PopularEvents" className="hover:text-gray-700">Popular</a>
                             </li>
                         </ul>
                     </>
                 )}
             </div>
             <div className="flex sm:flex-row gap-2 items-center">
-                {currentPath === "/pages/reservation" ? (
+                {/* {currentPath === "/pages/reservation" ? (
                     <button className="w-btn-width h-9.5 px-0 py-2 border-none rounded-lg bg-gray-900 text-white text-sm font-poppins focus:outline-none">Buy Tickets</button>
                 ) : (
                     <>
                         <button className="w-btn-width h-9.5 px-0 py-2 border-none rounded-lg bg-gray-900 text-white text-sm font-poppins focus:outline-none">Book</button>
                         <button className="w-btn-width h-9.5 px-0 py-2 border-none rounded-lg bg-gray-900 text-white text-sm font-poppins focus:outline-none">Tickets</button>
                     </>
-                )}
+                )} */}
                 
 
                     {user ? (

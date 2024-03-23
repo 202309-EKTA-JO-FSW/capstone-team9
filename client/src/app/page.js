@@ -146,31 +146,3 @@ export default function Home() {
   );
 }
 
-
-// export async function getServerSideProps(context){
-//   const eventsSliderResponse = await fetch (
-//    `http://localhost:3001/event/getSliderEvent`
-//    );
-//   const eventsslider = await eventsSliderResponse.json();
-
-//   const popularEventsResponse = await fetch (
-//     `http://localhost:3001/event/getPopularEvent`,
-//     options
-//     );
-//    const popularevents = await popularEvents.json();
-
-   
-//    const featuredEventsResponse = await fetch (
-//     `http://localhost:3001/event/getFeaturedEvent`,
-//     options
-//     );
-//    const featuredevents = await featuredEventsResponse.json();
-
-//   return{
-//     props: {
-//       eventsSlider: eventsslider.results.slice(0, 12) || [],
-//       popularEvents: popularevents.results.slice(0, 12) || [],
-//       featuredEvents: featuredevents.results.slice(0, 12) || []
-//     }
-//   }
-// }

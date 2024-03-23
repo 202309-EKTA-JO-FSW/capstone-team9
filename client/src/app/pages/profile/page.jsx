@@ -1,6 +1,6 @@
 "use client"
 import React, { useState, useEffect } from 'react';
-import Sidebar from '../../app/components/layout/Sidebar';
+import Sidebar from '../../components/layout/Sidebar';
 import Image from 'next/image';
 import { Icons } from '../../components/shared/Icons';
 import { useRouter } from 'next/navigation';
@@ -34,6 +34,8 @@ const Profile = () => {
       }
       const userData = await response.json();
       setUserInfo(userData);
+      router.refresh()
+
     } catch (error) {
       console.error(error);
     }
