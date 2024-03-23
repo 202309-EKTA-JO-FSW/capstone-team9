@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import Cookies from 'js-cookie';
 import Jwt from 'jsonwebtoken';
+import { Icons } from '../shared/Icons';
+import Image from 'next/image';
 const Header = () => {
 
     const [user, setUser] = useState(null);
@@ -39,7 +41,7 @@ const Header = () => {
                     <h1 className='logo text-black text-lg font-semibold font-poppins leading-9 mr-4'>Event Name</h1>
                 ) : (
                     <>
-                        <h1 className='logo text-black text-lg font-semibold font-poppins leading-9 mr-4'>EventMast</h1>
+                        <Image className='mx-auto h-10 w-auto leading-9 mr-4' src={Icons.logo} alt="Eventure" />
                         <ul className='flex gap-8 text-black'>
                             <li className='text-sm'>
                             <Link href="/pages/Events/SearchEvents"  className="hover:text-gray-700">Events</Link>
