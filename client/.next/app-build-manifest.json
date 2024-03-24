@@ -1,22 +1,15 @@
 {
   "pages": {
+    "/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/page.js"
+    ],
     "/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
-    ],
-    "/pages/Events/AddEvents/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/pages/Events/AddEvents/page.css",
-      "static/chunks/app/pages/Events/AddEvents/page.js"
-    ],
-    "/pages/Events/DeleteEvents/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/pages/Events/DeleteEvents/page.css",
-      "static/chunks/app/pages/Events/DeleteEvents/page.js"
     ],
     "/pages/Events/SearchEvents/page": [
       "static/chunks/webpack.js",

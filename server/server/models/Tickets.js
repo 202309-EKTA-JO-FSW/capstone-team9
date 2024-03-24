@@ -9,16 +9,21 @@ const TicketSchema = new mongoose.Schema({
       required: true,
       default:0
     },
-    UserID:{
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',// Update to the name of the User model
-       required: true,
-       default:0
-   },
-   Quantity:{
+   // UserID:{
+ //     type: mongoose.Schema.Types.ObjectId,
+    //  ref: 'User',// Update to the name of the User model
+    //   required: true,
+     //  default:0
+   //},
+   NumberOfAttendees:{
     type:Number,
     min: 0,
     required:true
+  },
+
+  time: {
+    type: String ,
+    required: true
   },
   PurchasedDate :{
     type:Date,

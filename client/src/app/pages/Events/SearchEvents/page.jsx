@@ -3,9 +3,9 @@
 import React, { useState, useEffect } from 'react';
 import SerachEvent from '../SerachEvent';
 import SearchPerNight from '../Serachpernight';
+import Link from "next/link"
 
-
-const App = () => {
+function SearchEvents  ()  {
   const [searchResults, setSearchResults] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -62,14 +62,17 @@ const App = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 sm:px-8 py-8">
+    <div className="container mx-auto px-10 sm:px-8 py-8">
       <SerachEvent onSearch={handleSearch} />
       <div className="mt-8">
         <h2 className="text-2xl font-semibold mb-4">Event Details:  </h2>
         <div>
           {searchResults && searchResults.length > 0 ? (
+
             <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {searchResults.map((event) => (
+                <Link href={`/Events/SearchEvents/${event._id}`} key={event._id}>
+
                 <li key={event._id} className="bg-white rounded-lg shadow-md p-6">
                   <h3 className="text-xl font-semibold mb-4">{event.Title}</h3>
                   <p className="mb-2"><span className="font-semibold">Description:</span> {event.Description}</p>
@@ -80,9 +83,23 @@ const App = () => {
                   <p className="mb-2"><span className="font-semibold">Number of Attendees:</span> {event.NumberOfAttendees}</p>
                   <p className="mb-2"><span className="font-semibold">Price:</span> {event.Price}</p>
                   {event.Image && renderImage(event.Image.data, event.contentType)}
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+
                 </li>
+                </Link>
+
               ))}
             </ul>
+
           ) : (
             <p>No search results found.</p>
           )}
@@ -92,4 +109,5 @@ const App = () => {
   );
 };
 
-export default App;
+export default SearchEvents;
+
