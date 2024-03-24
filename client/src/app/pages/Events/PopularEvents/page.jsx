@@ -1,8 +1,7 @@
 "use client";
-
 import React, { useState, useEffect } from 'react';
-import SerachEvent from '../SerachEvent';
-import SearchPerNight from '../Serachpernight';
+import { Grid, Card, CardActions, CardContent, CardMedia, Button, Typography } from '@mui/material';
+import Link from 'next/link';
 
 
 const App = () => {
@@ -64,27 +63,35 @@ const App = () => {
     <div className="container mx-auto px-4 sm:px-8 py-8">
       <div className="mt-8">
         <h2 className="text-2xl font-semibold mb-4">Popular Events:  </h2>
-        <div>
-          {popularEvents && popularEvents.length > 0 ? (
-            <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {popularEvents.map((event) => (
-                <li key={event._id} className="bg-white rounded-lg shadow-md p-6">
-                  <h3 className="text-xl font-semibold mb-4">{event.Title}</h3>
-                  <p className="mb-2"><span className="font-semibold">Description:</span> {event.Description}</p>
-                  <p className="mb-2"><span className="font-semibold">Category:</span> {event.Category}</p>
-                  <p className="mb-2"><span className="font-semibold">Location:</span> {event.Location}</p>
-                  <p className="mb-2"><span className="font-semibold">Start Date:</span> {event.StartDateTime && new Date(event.StartDateTime).toLocaleDateString()}</p>
-                  <p className="mb-2"><span className="font-semibold">End Date:</span> {event.EndDateTime && new Date(event.EndDateTime).toLocaleDateString()}</p>
-                  <p className="mb-2"><span className="font-semibold">Number of Attendees:</span> {event.NumberOfAttendees}</p>
-                  <p className="mb-2"><span className="font-semibold">Price:</span> {event.Price}</p>
-                  {event.Image && renderImage(event.Image.data, event.contentType)}
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p>No popular events found.</p>
-          )}
-        </div>
+
+        <Grid container spacing={3}>
+          {popularEvents.map((event) => (
+            <Grid item xs={12} sm={6} md={4} key={event._id}>
+              <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+                {event.Image && renderImage(event.Image.data, event.contentType)}
+                <CardContent sx={{ flexGrow: 1 }}>
+                  <Typography gutterBottom variant="h5" component="div" sx={{ fontFamily: 'Arial', fontWeight: 'bold' }}>
+                    {event.Title}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary" sx={{ fontFamily: 'Arial' }}>
+                    <p><span className="font-semibold">Description:</span> {event.Description}</p>
+                    <p><span className="font-semibold">Category:</span> {event.Category}</p>
+                    <p><span className="font-semibold">Location:</span> {event.Location}</p>
+                    <p><span className="font-semibold">Start Date:</span> {event.StartDateTime && new Date(event.StartDateTime).toLocaleDateString()}</p>
+                    <p><span className="font-semibold">End Date:</span> {event.EndDateTime && new Date(event.EndDateTime).toLocaleDateString()}</p>
+                    <p><span className="font-semibold">Number of Attendees:</span> {event.NumberOfAttendees}</p>
+                    <p><span className="font-semibold">Price:</span> {event.Price}</p>
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  <Link href="/pages/Events/BuyTicket">
+                    <Button size="small">Buy This tiket</Button>
+                  </Link>
+                </CardActions>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
       </div>
     </div>
   );

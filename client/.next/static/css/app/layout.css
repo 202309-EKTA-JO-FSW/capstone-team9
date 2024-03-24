@@ -879,9 +879,6 @@ video {
 .flex-col {
   flex-direction: column;
 }
-.flex-wrap {
-  flex-wrap: wrap;
-}
 .content-center {
   align-content: center;
 }
