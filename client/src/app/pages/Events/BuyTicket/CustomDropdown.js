@@ -1,50 +1,66 @@
 import React, { useState, useEffect } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { Dropdown } from 'react-bootstrap';
 import axios from 'axios';
+import '../../../style.css';
 
-function CustomDropdown({ onSelectEvent }) { // Receive onSelectEvent as a prop
+function CustomDropdown({ onSelectEvent }) {
   const [events, setEvents] = useState([]);
   const [selectedTitle, setSelectedTitle] = useState(null);
+  const [showDropdown, setShowDropdown] = useState(false);
 
   useEffect(() => {
-    // Fetch data from API when component mounts
     fetchEvents();
   }, []);
 
-  const fetchEvents = async () => {
+  const fetchEvents =  () => {
     try {
-      const response = await axios.get('http://localhost:3001/event/getEvents');
-      setEvents(response.data.events);
+      axios.get('http://localhost:3001/event/getEvents').then((response)=>{
+        setEvents(response.data.events);
+      });
+     
     } catch (error) {
       console.error('Error fetching events:', error);
     }
   };
 
-  const handleTitleSelect = (eventKey, event) => {
+// Dropdown component
+const Dropdown = ({ options, onChange }) => {
+  return (
+    <select className="custom-dropdown" onChange={onChange}>
+      {/* Map through options and create dropdown items */}
+      {options.map((option, index) => (
+        <option key={index} value={option.value}>
+          {option.label}
+        </option>
+      ))}
+    </select>
+  );
+};
+
+
+
+  const handleTitleSelect = ( event) => {
+    const eventKey = event.target.value;
+
     const selectedEvent = events.find(event => event._id === eventKey);
+
     setSelectedTitle(selectedEvent?.Title);
 
     // Invoke onSelectEvent callback with the selected event's ID
     onSelectEvent(eventKey);
+ 
   };
 
   return (
-    <div className="container mt-4">
-      <Dropdown onSelect={handleTitleSelect}>
-        <Dropdown.Toggle variant="secondary" id="dropdown-basic">
-          {selectedTitle || 'Select Event'}
-        </Dropdown.Toggle>
+    <div className="dropdown-container">
+      <h1>Select Event</h1>
+      <Dropdown options={events.map(event => ({ value: event._id, label: event.Title }))} onChange={handleTitleSelect} />
 
-        <Dropdown.Menu >
-          {events.map(event => (
-            <Dropdown.Item key={event._id} eventKey={event._id}>{event.Title}</Dropdown.Item>
-          ))}
-        </Dropdown.Menu>
-      </Dropdown>
+    </div>
+
+
 
   
-    </div>
   );
 }
 

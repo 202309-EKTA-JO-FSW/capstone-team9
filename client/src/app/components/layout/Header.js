@@ -67,7 +67,7 @@ const Header = () => {
                     <button className="w-btn-width h-9.5 px-0 py-2 border-none rounded-lg bg-gray-900 text-white text-sm font-poppins focus:outline-none">Buy Tickets</button>
                 ) : (
                     <>
-                        <Link href="/pages/Events/BuyTicket" className="w-btn-width h-9.5 px-0 py-2 border-none rounded-lg bg-gray-900 text-white text-sm font-poppins focus:outline-none text-center">
+                        <Link id="tickets-link" href="/pages/Events/BuyTicket" className="w-btn-width h-9.5 px-0 py-2 border-none rounded-lg bg-gray-900 text-white text-sm font-poppins focus:outline-none text-center">
                                         <span>
                                             Tickets
                                         </span>
@@ -102,7 +102,6 @@ const Header = () => {
                                             Sign Up
                                         </span>
                                     </Link>
-                                
 
                                 </>
                             )}

@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import CustomDropdown from './CustomDropdown'; // Import your dropdown component
 const TicketPage = () => {
   const [NumberOfAttendees, setAttendees] = useState('');
@@ -79,14 +80,12 @@ const TicketPage = () => {
         </div>
         <CustomDropdown onSelectEvent={handleEventSelection} />
        < br />
-       <div style={{ display: 'flex', justifyContent: 'center' }}> {/* Centering the button */}
-          <button
-            className="bg-black text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            type="submit"
-          >
-            Buy Tickets
-          </button>
-        </div>
+        <button
+          className="bg-black text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          type="submit"
+        >
+          Buy Tickets
+        </button>
       </form>
       <ToastContainer /> {/* Toast container to display notifications */}
 

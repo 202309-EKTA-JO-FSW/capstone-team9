@@ -1,9 +1,10 @@
 {
   "pages": {
-    "/page": [
+    "/pages/Events/BuyTicket/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/page.js"
+      "static/css/app/pages/Events/BuyTicket/page.css",
+      "static/chunks/app/pages/Events/BuyTicket/page.js"
     ],
     "/layout": [
       "static/chunks/webpack.js",
@@ -16,22 +17,15 @@
       "static/chunks/main-app.js",
       "static/chunks/app/pages/Events/SearchEvents/page.js"
     ],
-    "/pages/Events/BuyTicket/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/pages/Events/BuyTicket/page.css",
-      "static/chunks/app/pages/Events/BuyTicket/page.js"
-    ],
     "/pages/signin/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/pages/signin/page.js"
     ],
-    "/pages/Events/AddEvents/page": [
+    "/pages/signup/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/pages/Events/AddEvents/page.css",
-      "static/chunks/app/pages/Events/AddEvents/page.js"
+      "static/chunks/app/pages/signup/page.js"
     ],
     "/not-found": [
       "static/chunks/webpack.js",
