@@ -32,16 +32,18 @@ function CustomDropdown({ onSelectEvent }) { // Receive onSelectEvent as a prop
   return (
     <div className="container mt-4">
       <Dropdown onSelect={handleTitleSelect}>
-        <Dropdown.Toggle variant="success" id="dropdown-basic">
+        <Dropdown.Toggle variant="secondary" id="dropdown-basic">
           {selectedTitle || 'Select Event'}
         </Dropdown.Toggle>
 
-        <Dropdown.Menu>
+        <Dropdown.Menu >
           {events.map(event => (
             <Dropdown.Item key={event._id} eventKey={event._id}>{event.Title}</Dropdown.Item>
           ))}
         </Dropdown.Menu>
       </Dropdown>
+
+  
     </div>
   );
 }

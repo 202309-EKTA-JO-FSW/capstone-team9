@@ -2,16 +2,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import CustomDropdown from './CustomDropdown'; // Import your dropdown component
-
 const TicketPage = () => {
   const [NumberOfAttendees, setAttendees] = useState('');
   const [PurchasedDate, setDate] = useState('');
   const [time, setTime] = useState('');
   const [EventID, setEventId] = useState(null); // State to store the selected event ID
-  const [click, setClick] = useState(false);
-  const [selectedEvent, setSelectedEvent] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -40,10 +36,6 @@ const TicketPage = () => {
   // Callback function to handle event selection from the dropdown
   const handleEventSelection = (eventId) => {
     setEventId(eventId); // Update EventID state with the selected event's ID
-  };
-
-  const handleCLick = () => {
-    setClick(!click);
   };
 
   return (
@@ -85,15 +77,16 @@ const TicketPage = () => {
             onChange={(e) => setTime(e.target.value)}
           />
         </div>
-
         <CustomDropdown onSelectEvent={handleEventSelection} />
        < br />
-        <button
-          className="bg-black text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-          type="submit"
-        >
-          Buy Tickets
-        </button>
+       <div style={{ display: 'flex', justifyContent: 'center' }}> {/* Centering the button */}
+          <button
+            className="bg-black text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            type="submit"
+          >
+            Buy Tickets
+          </button>
+        </div>
       </form>
       <ToastContainer /> {/* Toast container to display notifications */}
 
