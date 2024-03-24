@@ -16,9 +16,11 @@ const Header = () => {
             const token = Cookies.get('jwt');
             if (token) {
                 const decodedToken = Jwt.decode(token);
-                const { _id, UserType } = decodedToken;
+                const { _id, UserType } = decodedToken;               
                 setUser({ id: _id, UserType: UserType });
             }
+
+            
         }
     }, [user]);
 
@@ -48,15 +50,15 @@ const Header = () => {
                             </li>
                             {user ? (
                                     <>
-                                     {/* {user.UserType === 1 && (
-                                         <> */}
+                                     {user.UserType === 1 && (
+                                         <>
                             <li className='text-sm'>
                                 <Link href="/pages/Events/AddEvents" className="hover:text-gray-700">ADD Events</Link>
                             </li>
                             <li className='text-sm'>
                                 <Link href="/pages/Events/DeleteEvents" className="hover:text-gray-700">Delete Events</Link>
                             </li>
-                            {/* </>)} */}
+                            </>)}
                             </>):(<></>)}
                             <li className='text-sm'>
                                 <a href="/pages/Events/FeaturedEvents" className="hover:text-gray-700">Featured</a>

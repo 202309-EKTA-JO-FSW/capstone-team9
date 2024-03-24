@@ -19,7 +19,7 @@ res.json(GetAlluser)
 }
 
 const generateToken = async (user) => {
-  return jwt.sign({ id: user.id }, process.env.JWT_SECRET , { expiresIn: '1h' });
+  return jwt.sign({ id: user.id,UserType : user.UserType }, process.env.JWT_SECRET , { expiresIn: '1h' });
 }
 
 const signUp = async (req, res) => {
