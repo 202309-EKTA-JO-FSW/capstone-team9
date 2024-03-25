@@ -1,61 +1,31 @@
 {
   "pages": {
-<<<<<<< HEAD
-    "/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/page.css",
-      "static/chunks/app/page.js"
-=======
-    "/pages/Events/BuyTicket/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/pages/Events/BuyTicket/page.css",
-      "static/chunks/app/pages/Events/BuyTicket/page.js"
->>>>>>> EventDetailsFront
-    ],
     "/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-<<<<<<< HEAD
-    "/pages/Events/PopularEvents/page": [
+    "/pages/Events/FeaturedEvents/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/pages/Events/PopularEvents/page.js"
+      "static/chunks/app/pages/Events/FeaturedEvents/page.js"
     ],
-    "/pages/signin/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/pages/signin/page.js"
-    ],
-    "/pages/profile/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/pages/profile/page.js"
-=======
     "/pages/Events/SearchEvents/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/pages/Events/SearchEvents/page.js"
     ],
-    "/pages/signin/page": [
+    "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/pages/signin/page.js"
-    ],
-    "/pages/signup/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/pages/signup/page.js"
+      "static/css/app/page.css",
+      "static/chunks/app/page.js"
     ],
     "/not-found": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/not-found.js"
->>>>>>> EventDetailsFront
     ]
   }
 }

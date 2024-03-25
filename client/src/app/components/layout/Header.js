@@ -4,12 +4,8 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import Cookies from 'js-cookie';
 import Jwt from 'jsonwebtoken';
-<<<<<<< HEAD
 import { Icons } from '../shared/Icons';
 import Image from 'next/image';
-=======
-import SerachEvent from '@/app/pages/Events/SerachEvent';
->>>>>>> EventDetailsFront
 const Header = () => {
 
     const [user, setUser] = useState(null);
@@ -52,14 +48,11 @@ const Header = () => {
                             <li className='text-sm'>
                             <Link href="/pages/Events/SearchEvents"  className="hover:text-gray-700">Events</Link>
                             </li>
-<<<<<<< HEAD
                             {user ? (
                                     <>
                                      {user.UserType === 1 && (
                                          <>
-=======
 
->>>>>>> EventDetailsFront
                             <li className='text-sm'>
                                 <Link href="/pages/Events/AddEvents" className="hover:text-gray-700">ADD Events</Link>
                             </li>
@@ -79,28 +72,14 @@ const Header = () => {
                 )}
             </div>
             <div className="flex sm:flex-row gap-2 items-center">
-                {/* {currentPath === "/pages/reservation" ? (
-                    <button className="w-btn-width h-9.5 px-0 py-2 border-none rounded-lg bg-gray-900 text-white text-sm font-poppins focus:outline-none">Buy Tickets</button>
-                ) : (
-                    <>
-<<<<<<< HEAD
-                        <button className="w-btn-width h-9.5 px-0 py-2 border-none rounded-lg bg-gray-900 text-white text-sm font-poppins focus:outline-none">Book</button>
-                        <button className="w-btn-width h-9.5 px-0 py-2 border-none rounded-lg bg-gray-900 text-white text-sm font-poppins focus:outline-none">Tickets</button>
-                    </>
-                )} */}
-=======
-                        <Link id="tickets-link" href="/pages/Events/BuyTicket" className="w-btn-width h-9.5 px-0 py-2 border-none rounded-lg bg-gray-900 text-white text-sm font-poppins focus:outline-none text-center">
+
+                    {user ? (
+                                    <>
+                                     <Link id="tickets-link" href="/pages/Events/BuyTicket" className="w-btn-width h-9.5 px-0 py-2 border-none rounded-lg bg-gray-900 text-white text-sm font-poppins focus:outline-none text-center">
                                         <span>
                                             Tickets
                                         </span>
                                     </Link>
-                              </>
-                             )}
->>>>>>> EventDetailsFront
-                
-
-                    {user ? (
-                                    <>
                      <Link href="/pages/profile" className="w-btn-width h-9.5 px-0 py-2 border-none rounded-lg bg-gray-900 text-white text-sm font-poppins focus:outline-none text-center">
                       <span>
                          Profile Settings

@@ -3,7 +3,7 @@ const Event = require('../models/Event');
 
 const searchEventsByLocationAndDateAndAttendees = async (req, res) => {
     try {
-        const { Location, StartDateTime, EndDateTime ,NumberOfAttendees,Category, minPrice, maxPrice} = req.query;
+        const { Title,Location, StartDateTime, EndDateTime ,NumberOfAttendees,Category, minPrice, maxPrice} = req.query;
     
         // Check if at least one of location, startDate, or endDate is provided
       //  if (!Location && !StartDateTime && !EndDateTime && !NumberOfAttendees && !Category && !minPrice  &&  !maxPrice) {
@@ -13,6 +13,9 @@ const searchEventsByLocationAndDateAndAttendees = async (req, res) => {
         // Build the query based on the provided criteria
         const query = {};
     
+        if (Title) {
+          query.Title = Title;
+        }
         if (Location) {
           query.Location = Location;
         }
