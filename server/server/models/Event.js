@@ -16,12 +16,12 @@ const EventSchema = new mongoose.Schema({
     required: true,
   },
   EndDateTime: {
-    type: String,
+    type: Date,// Change to Date type
     required: true,
   },
  Creator: {
-   type: mongoose.Schema.Types.ObjectId,
-    ref: User
+  type: mongoose.Schema.Types.ObjectId,
+  ref: 'User'// Update to the name of the User model
   },
   Category:{
     type:String,
@@ -31,15 +31,17 @@ const EventSchema = new mongoose.Schema({
     type:String,
     required:true
   },
-  Image:{
-    type:String,
-    required:true
+  Image: {
+    data: Buffer,
+    contentType: String,
   },
   Featured:{
-    type:Boolean
+    type: Boolean,
+    default: false  
   },
-  Poplar:{
-    type:Boolean
+  Popular:{ // updated to Popular
+    type: Boolean,
+    default: false  
   },
   Price:{
     type:Number,

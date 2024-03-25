@@ -4,6 +4,7 @@ const eventRoute = require("./routes/EventRoute");
 const userRoute = require("./routes/UserRoute");
 const searchRoute= require("./routes/SearchRoute")
 const ticketRoute = require('./routes/TicketRoute');
+
 require("dotenv").config();
 
 const connectToMongo = require("./db/connection");
@@ -17,11 +18,11 @@ app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
   connectToMongo();
 });
+
 app.use("/event",eventRoute);
 app.use("/user",userRoute);
 app.use('/ticket', ticketRoute);

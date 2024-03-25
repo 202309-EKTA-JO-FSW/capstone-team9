@@ -1,11 +1,18 @@
 {
   "pages": {
+    "/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/page.css",
+      "static/chunks/app/page.js"
+    ],
     "/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
+<<<<<<< HEAD
     "/pages/signin/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -20,6 +27,17 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/pages/profile/page.js"
+=======
+    "/pages/Events/FeaturedEvents/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/pages/Events/FeaturedEvents/page.js"
+    ],
+    "/pages/Events/PopularEvents/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/pages/Events/PopularEvents/page.js"
+>>>>>>> HomePage
     ]
   }
 }

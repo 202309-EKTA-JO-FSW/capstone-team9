@@ -34,6 +34,8 @@ const Profile = () => {
       }
       const userData = await response.json();
       setUserInfo(userData);
+      router.refresh()
+
     } catch (error) {
       console.error(error);
     }

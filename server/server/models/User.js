@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 
 const UserSchema = new mongoose.Schema({
+
     FullName: {
     type: String,
     required: true,
@@ -37,7 +38,8 @@ const UserSchema = new mongoose.Schema({
   },
   Nationality:{
     type:String
-  }
+  },
+
 });
 
 

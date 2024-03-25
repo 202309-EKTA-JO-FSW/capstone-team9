@@ -5,13 +5,13 @@ const Event = require("./Event");
 const TicketSchema = new mongoose.Schema({
     EventID:{
       type: mongoose.Schema.Types.ObjectId,
-      ref: Event,
+      ref: 'Event',// Update to the name of the Event model
       required: true,
       default:0
     },
     UserID:{
       type: mongoose.Schema.Types.ObjectId,
-       ref: User,
+      ref: 'User',// Update to the name of the User model
        required: true,
        default:0
    },
