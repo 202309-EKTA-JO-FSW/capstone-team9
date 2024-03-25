@@ -1,8 +1,16 @@
+<<<<<<<< HEAD:client/.next/types/app/page.ts
 // File: /usr/src/app/client/src/app/page.js
 import * as entry from '../../../src/app/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
 type TEntry = typeof import('../../../src/app/page.js')
+========
+// File: /usr/src/app/client/src/app/pages/signin/page.jsx
+import * as entry from '../../../../../src/app/pages/signin/page.js'
+import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
+
+type TEntry = typeof import('../../../../../src/app/pages/signin/page.js')
+>>>>>>>> EventDetailsFront:client/.next/types/app/pages/signin/page.ts
 
 // Check that the entry is a valid entry
 checkFields<Diff<{

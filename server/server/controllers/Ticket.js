@@ -15,15 +15,24 @@ const getTicketById = async (ticketId) => {
 };
 
 // Create a new ticket
-const createTicket = async (ticketData) => {
+const createTicket = async (req, res) => {
     try {
-        const newTicket = await Ticket.create(ticketData);
-        return newTicket;
-    } catch (error) {
-        console.error(error);
-        throw error;
+        const { EventID, NumberOfAttendees, PurchasedDate,time} =  req.body;
+        const newTicket = new Ticket({
+                EventID,
+                NumberOfAttendees,
+                PurchasedDate,
+                time
+        });
+        
+        await newTicket.save();
+        res.status(201).json({ message: "Ticket created successfully", ticket: newTicket });
+    } catch (err) {
+      // Handle errors
+      console.error("Error creating ticket:", err);
+      res.status(500).json({ error: "Internal server error" });
     }
-};
+  };
 
 // Update ticket details by ticket ID
 const updateTicketById = async (ticketId, updatedData) => {

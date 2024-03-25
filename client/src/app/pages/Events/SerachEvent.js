@@ -21,7 +21,7 @@ const SerachEvent = ({ onSearch }) => {
     if (searchDelay) {
       clearTimeout(searchDelay);
     }
-    setSearchDelay(setTimeout(() => onSearch(formData), 500)); // Debounce search with a delay of 500ms
+    setSearchDelay(setTimeout(() => onSearch(formData), 30)); // Debounce search with a delay of 500ms
   };
 
   return (

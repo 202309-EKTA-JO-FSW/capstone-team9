@@ -1,7 +1,14 @@
 {
+<<<<<<< HEAD
   "/page": "app/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
   "/pages/Events/PopularEvents/page": "app/pages/Events/PopularEvents/page.js",
   "/pages/signin/page": "app/pages/signin/page.js",
   "/pages/profile/page": "app/pages/profile/page.js"
+=======
+  "/not-found": "app/not-found.js",
+  "/pages/Events/BuyTicket/page": "app/pages/Events/BuyTicket/page.js",
+  "/pages/Events/SearchEvents/page": "app/pages/Events/SearchEvents/page.js",
+  "/pages/signin/page": "app/pages/signin/page.js"
+>>>>>>> EventDetailsFront
 }

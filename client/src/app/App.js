@@ -1,6 +1,7 @@
 // App.js
 import React from 'react';
 import EventSearch from './EventSearch';
+import 'style.css';
 
 function App() {
   return (

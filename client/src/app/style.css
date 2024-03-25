@@ -1,0 +1,29 @@
+/* styles.css */
+.custom-dropdown {
+    width: 200px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-size: 16px;
+    outline: none;
+    background-color: var(--primary-bg-color);
+    border-radius: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  }
+  
+  .dropdown-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 34rem;
+  }
+
+ 
+
+
+
+  .custom-dropdown,.select-selected {
+ padding: 10px;
+    font-size: 16px;
+  }

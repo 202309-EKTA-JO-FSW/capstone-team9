@@ -234,7 +234,16 @@ const AddEventForm = () => {
             Add Event
           </button>
       </form>
+      <br />
+      <br />
+      <br />
+      <br />
+  
+      <br />
+      <br />
+      <br />
     </div>
+    
   );
 };
 
