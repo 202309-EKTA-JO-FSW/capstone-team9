@@ -1,12 +1,7 @@
 {
-<<<<<<< HEAD
-  "/pages/signin/page": "app/pages/signin/page.js",
-  "/pages/signup/page": "app/pages/signup/page.js",
-  "/pages/profile/page": "app/pages/profile/page.js"
-=======
   "/page": "app/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/pages/Events/FeaturedEvents/page": "app/pages/Events/FeaturedEvents/page.js",
-  "/pages/Events/PopularEvents/page": "app/pages/Events/PopularEvents/page.js"
->>>>>>> HomePage
+  "/pages/Events/PopularEvents/page": "app/pages/Events/PopularEvents/page.js",
+  "/pages/signin/page": "app/pages/signin/page.js",
+  "/pages/profile/page": "app/pages/profile/page.js"
 }

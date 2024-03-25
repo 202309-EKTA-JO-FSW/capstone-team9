@@ -718,12 +718,9 @@ video {
 .mt-2 {
   margin-top: 0.5rem;
 }
-<<<<<<< HEAD
-=======
 .mt-3 {
   margin-top: 0.75rem;
 }
->>>>>>> HomePage
 .mt-6 {
   margin-top: 1.5rem;
 }
@@ -805,15 +802,12 @@ video {
 .w-full {
   width: 100%;
 }
-<<<<<<< HEAD
-=======
 .min-w-full {
   min-width: 100%;
 }
 .max-w-\[1000px\] {
   max-width: 1000px;
 }
->>>>>>> HomePage
 .max-w-md {
   max-width: 28rem;
 }
@@ -870,12 +864,9 @@ video {
      -moz-appearance: none;
           appearance: none;
 }
-<<<<<<< HEAD
-=======
 .grid-cols-1 {
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }
->>>>>>> HomePage
 .grid-cols-3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
@@ -1058,13 +1049,10 @@ video {
 .border-transparent {
   border-color: transparent;
 }
-<<<<<<< HEAD
-=======
 .bg-blue-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(59 130 246 / var(--tw-bg-opacity));
 }
->>>>>>> HomePage
 .bg-blue-700 {
   --tw-bg-opacity: 1;
   background-color: rgb(29 78 216 / var(--tw-bg-opacity));
@@ -1152,13 +1140,10 @@ video {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
 }
-<<<<<<< HEAD
-=======
 .px-20 {
   padding-left: 5rem;
   padding-right: 5rem;
 }
->>>>>>> HomePage
 .px-3 {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
@@ -1171,8 +1156,6 @@ video {
   padding-left: 1.25rem;
   padding-right: 1.25rem;
 }
-<<<<<<< HEAD
-=======
 .px-6 {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
@@ -1181,7 +1164,6 @@ video {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
 }
->>>>>>> HomePage
 .py-12 {
   padding-top: 3rem;
   padding-bottom: 3rem;
@@ -1202,8 +1184,6 @@ video {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
-<<<<<<< HEAD
-=======
 .py-5 {
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
@@ -1212,7 +1192,6 @@ video {
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
->>>>>>> HomePage
 .pl-3 {
   padding-left: 0.75rem;
 }
@@ -1251,8 +1230,6 @@ video {
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
-<<<<<<< HEAD
-=======
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
@@ -1264,7 +1241,6 @@ video {
 .font-bold {
   font-weight: 700;
 }
->>>>>>> HomePage
 .font-extrabold {
   font-weight: 800;
 }
@@ -1315,13 +1291,10 @@ video {
   --tw-text-opacity: 1;
   color: rgb(75 85 99 / var(--tw-text-opacity));
 }
-<<<<<<< HEAD
-=======
 .text-gray-700 {
   --tw-text-opacity: 1;
   color: rgb(55 65 81 / var(--tw-text-opacity));
 }
->>>>>>> HomePage
 .text-gray-800 {
   --tw-text-opacity: 1;
   color: rgb(31 41 55 / var(--tw-text-opacity));
@@ -1362,14 +1335,11 @@ video {
   --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
-<<<<<<< HEAD
-=======
 .shadow-md {
   --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
->>>>>>> HomePage
 .shadow-sm {
   --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
@@ -1429,13 +1399,10 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(55 65 81 / var(--tw-bg-opacity));
 }
-<<<<<<< HEAD
-=======
 .hover\:bg-red-700:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(185 28 28 / var(--tw-bg-opacity));
 }
->>>>>>> HomePage
 .hover\:bg-white:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -1460,13 +1427,10 @@ video {
   --tw-text-opacity: 1;
   color: rgb(17 24 39 / var(--tw-text-opacity));
 }
-<<<<<<< HEAD
-=======
 .hover\:text-white:hover {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
->>>>>>> HomePage
 .focus\:z-10:focus {
   z-index: 10;
 }
@@ -1515,13 +1479,10 @@ video {
 .focus\:ring-offset-2:focus {
   --tw-ring-offset-width: 2px;
 }
-<<<<<<< HEAD
-=======
 .active\:bg-blue-800:active {
   --tw-bg-opacity: 1;
   background-color: rgb(30 64 175 / var(--tw-bg-opacity));
 }
->>>>>>> HomePage
 .group:hover .group-hover\:text-gray-400 {
   --tw-text-opacity: 1;
   color: rgb(156 163 175 / var(--tw-text-opacity));
@@ -1546,14 +1507,11 @@ video {
     padding-right: 1.5rem;
   }
 
-<<<<<<< HEAD
-=======
   .sm\:px-8 {
     padding-left: 2rem;
     padding-right: 2rem;
   }
 
->>>>>>> HomePage
   .sm\:text-sm {
     font-size: 0.875rem;
     line-height: 1.25rem;
@@ -1561,13 +1519,10 @@ video {
 }
 @media (min-width: 1024px) {
 
-<<<<<<< HEAD
-=======
   .lg\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
->>>>>>> HomePage
   .lg\:px-8 {
     padding-left: 2rem;
     padding-right: 2rem;

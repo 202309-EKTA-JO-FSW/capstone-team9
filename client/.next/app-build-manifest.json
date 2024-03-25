@@ -12,32 +12,20 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-<<<<<<< HEAD
+    "/pages/Events/PopularEvents/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/pages/Events/PopularEvents/page.js"
+    ],
     "/pages/signin/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/pages/signin/page.js"
     ],
-    "/pages/signup/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/pages/signup/page.js"
-    ],
     "/pages/profile/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/pages/profile/page.js"
-=======
-    "/pages/Events/FeaturedEvents/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/pages/Events/FeaturedEvents/page.js"
-    ],
-    "/pages/Events/PopularEvents/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/pages/Events/PopularEvents/page.js"
->>>>>>> HomePage
     ]
   }
 }
